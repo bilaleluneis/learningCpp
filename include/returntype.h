@@ -25,4 +25,6 @@ struct val {
         bool success;
 };
 
+using instace_id = int;
+
 #endif //LEARNINGCPP_RETURNTYPE_H

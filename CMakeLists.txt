@@ -16,16 +16,15 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # includes
 set(INCLUDES
         include/crtp.h
-        include/decltype.h
+        include/point.h
         include/type_traits.h
         include/exceptions.h
         include/array.h
-        include/returntype.h)
+        include/returntype.h include/policy.h)
 
 # sources
 set(SOURCES
-        src/crtp.cpp
-        src/decltype.cpp)
+        src/crtp.cpp src/policy.cpp)
 
 # unit tests
 set(TESTS

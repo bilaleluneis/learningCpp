@@ -9,20 +9,22 @@
 
 #include <include/type_traits.h>
 #include <include/returntype.h>
+#include <include/policy.h>
+#include <include/returntype.h>
 
-template <typename T, int size>
-class Array final {
+template <typename T, int size, instace_id id>
+class Array final : public Collection<T> {
 
     public:
-        ~ Array() = default;
+        ~ Array();
         Array() = default;
 
         // allow using range based loops
-        const T* begin() const;
-        const T* end() const;
+        const T* begin() const override;
+        const T* end() const override ;
 
         // overload [] operator
-        T& operator[](int index);
+        T& operator[](int index) override;
 
     private:
         static_assert(is_valid_size<size>::value, "Array size must be > 0");

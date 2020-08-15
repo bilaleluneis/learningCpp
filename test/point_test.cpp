@@ -5,8 +5,8 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include <vector>
-#include <include/decltype.h>
+#include <array>
+#include <include/point.h>
 
 using namespace std;
 using namespace boost;
@@ -19,7 +19,8 @@ struct pointFixture {
 BOOST_FIXTURE_TEST_SUITE(pointTests, pointFixture)
 
     BOOST_AUTO_TEST_CASE( pointInterface ) {
-        //auto point = Point<int>();
+        Point point2D = Point2D<int>{};
+        Point point3D = Point3D<int>{};
     }
 
 BOOST_AUTO_TEST_SUITE_END()

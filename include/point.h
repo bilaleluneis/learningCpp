@@ -10,16 +10,14 @@
  * the use of decltype() for return type
  */
 
-#ifndef LEARNINGCPP_DECLTYPE_H
-#define LEARNINGCPP_DECLTYPE_H
+#ifndef LEARNINGCPP_POINT_H
+#define LEARNINGCPP_POINT_H
 
-#include <array>
-#include <vector>
 #include <include/type_traits.h>
 
 using namespace std;
 
-template <typename T, int Dimentions = 2>
+template <typename T, int Dimentions>
 class Point {
 
     public:
@@ -37,20 +35,11 @@ class Point {
 };
 
 /* final classes .. cannot be inherited */
-class Point2D final : public Point<float> {
+template <typename T>
+class Point2D final : public Point<T, 2>{};
 
-    public:
-        ~ Point2D() override = default;
-
-
-};
-
-class Point3D final: public Point<float, 3> {
-
-    public:
-        ~ Point3D() override = default;
-
-};
+template <typename T>
+class Point3D final: public Point<T, 3> {};
 
 
-#endif //LEARNINGCPP_DECLTYPE_H
+#endif //LEARNINGCPP_POINT_H
