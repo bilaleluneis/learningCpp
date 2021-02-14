@@ -5,8 +5,8 @@
  */
 
 #include <boost/test/unit_test.hpp>
-#include <include/array.h>
-#include <include/policy.h>
+#include <array.h>
+#include <policy.h>
 
 struct arrayFixture {
         explicit arrayFixture() = default;
@@ -18,7 +18,7 @@ BOOST_FIXTURE_TEST_SUITE(arrayTests, arrayFixture)
     BOOST_AUTO_TEST_CASE( instanceCreation ) {
     }
 
-    BOOST_AUTO_TEST_CASE( rangeLoop ) {
+    /*BOOST_AUTO_TEST_CASE( rangeLoop ) {
         Array array = Array<int, 10, 1>{};
         for (auto v : array)
             BOOST_CHECK(v == 0);
@@ -46,7 +46,8 @@ BOOST_FIXTURE_TEST_SUITE(arrayTests, arrayFixture)
         collection = container.at(1);
         for(auto c : *collection)
             BOOST_CHECK(c == 10);
-    }
+    }*/
+
 
 
 BOOST_AUTO_TEST_SUITE_END()

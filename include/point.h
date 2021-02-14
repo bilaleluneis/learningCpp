@@ -13,7 +13,7 @@
 #ifndef LEARNINGCPP_POINT_H
 #define LEARNINGCPP_POINT_H
 
-#include <include/type_traits.h>
+#include <type_traits.h>
 
 using namespace std;
 

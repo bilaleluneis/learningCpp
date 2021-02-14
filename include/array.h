@@ -7,10 +7,11 @@
 #ifndef LEARNINGCPP_ARRAY_H
 #define LEARNINGCPP_ARRAY_H
 
-#include <include/type_traits.h>
-#include <include/returntype.h>
-#include <include/policy.h>
-#include <include/returntype.h>
+#include <type_traits.h>
+#include <returntype.h>
+#include <policy.h>
+#include <returntype.h>
+#include <iosfwd>
 
 template <typename T, int size, instace_id id>
 class Array final : public Collection<T> {
@@ -32,6 +33,6 @@ class Array final : public Collection<T> {
 
 };
 
-#include <src/array.cpp>
+//#include <src/array.cpp>
 
 #endif //LEARNINGCPP_ARRAY_H

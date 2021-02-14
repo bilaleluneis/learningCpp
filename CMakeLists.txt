@@ -10,34 +10,31 @@ project(learningCpp)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Werror")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
-# includes
-set(INCLUDES
-        include/crtp.h
-        include/point.h
-        include/type_traits.h
-        include/exceptions.h
-        include/array.h
-        include/returntype.h include/policy.h)
+find_package(Boost COMPONENTS unit_test_framework)
 
-# sources
-set(SOURCES
-        src/crtp.cpp src/policy.cpp)
-
-# unit tests
-set(TESTS
-        test/tests_runner.cpp
-        test/crtp_test.cpp
-        test/point_test.cpp
-        test/array_test.cpp)
-
-find_package(Boost 1.67 REQUIRED COMPONENTS unit_test_framework)
-
-# target to build unit tests as executable
 enable_testing()
-add_executable(learningCppTests ${TESTS} ${SOURCES} ${INCLUDES})
-target_include_directories(learningCppTests PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(learningCppTests Boost::unit_test_framework)
-target_compile_definitions(learningCppTests PRIVATE BOOST_TEST_DYN_LINK)
+
+# ------------------ C++ 17 ------------------
+
+# Class Templates Type Deduction
+set(CTTD_SRC c++17/cttd/test.cpp c++17/cttd/pair.hpp)
+
+# ------------------ C++ 17 ------------------
+
+# ------------------ Data Structure ------------------
+set(ARRAY_SRC   datastructure/array/test.cpp
+        datastructure/array/array.hpp
+                datastructure/indexable.h
+                datastructure/iterable.h)
+# ------------------ Data Structure ------------------
+
+
+foreach(example CTTD ARRAY)
+    add_executable(${example} ${${example}_SRC})
+    target_include_directories(${example} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+    target_link_libraries(${example} Boost::unit_test_framework)
+    target_compile_definitions(${example} PRIVATE BOOST_TEST_DYN_LINK)
+endforeach()

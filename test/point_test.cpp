@@ -6,7 +6,7 @@
 
 #include <boost/test/unit_test.hpp>
 #include <array>
-#include <include/point.h>
+#include <point.h>
 
 using namespace std;
 using namespace boost;

@@ -7,6 +7,8 @@
 #ifndef LEARNINGCPP_TYPE_TRAITS_H
 #define LEARNINGCPP_TYPE_TRAITS_H
 
+#include <type_traits>
+
 // by default any Type is not valid point coordinate
 template <typename T>
 struct is_valid_point_coord {
