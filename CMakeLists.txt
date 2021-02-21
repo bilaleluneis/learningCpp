@@ -22,10 +22,15 @@ enable_testing()
 # Class Templates Type Deduction
 set(CTTD_SRC c++17/cttd/test.cpp c++17/cttd/pair.hpp)
 
-# Copy Constructable
+# Copy Constructable / Assignment
 set(CC_SRC  c++17/copyconstruct/test.cpp
             c++17/copyconstruct/vector.cpp
             c++17/copyconstruct/vector.h)
+
+# Move Constructable / Assignment
+set(MC_SRC  c++17/moveconstruct/test.cpp
+            c++17/moveconstruct/vector.cpp
+            c++17/moveconstruct/vector.h)
 
 # ------------------ C++ 17 ------------------
 
@@ -37,7 +42,7 @@ set(ARRAY_SRC   datastructure/array/test.cpp
 # ------------------ Data Structure ------------------
 
 
-foreach(example CC CTTD ARRAY)
+foreach(example MC CC CTTD ARRAY)
     add_executable(${example} ${${example}_SRC})
     target_include_directories(${example} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
     target_link_libraries(${example} Boost::unit_test_framework)
